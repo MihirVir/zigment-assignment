@@ -15,5 +15,6 @@ import {
   ],
   providers: [UserPreferencesService],
   controllers: [UserPreferencesController],
+  exports: [UserPreferencesService],
 })
 export class UserPreferencesModule {}

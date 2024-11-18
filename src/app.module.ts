@@ -5,6 +5,8 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserPreferencesModule } from './user-preferences/user-preferences.module';
+import { NotificationsModule } from './notifications/notifications.module';
+import { LoggerModule } from './logger/logger.module';
 
 @Module({
   imports: [
@@ -13,6 +15,8 @@ import { UserPreferencesModule } from './user-preferences/user-preferences.modul
     MongooseModule.forRoot(
       (process.env.MONGO_URI as string) || 'mongodb://localhost:27017/zigment',
     ),
+    NotificationsModule,
+    LoggerModule,
   ],
   controllers: [AppController],
   providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],

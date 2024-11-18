@@ -32,6 +32,7 @@ export class UserPreferencesService {
     userId: string,
     updatePreference: Partial<UserPreference>,
   ): Promise<UserPreference> {
+    console.log(userId);
     const up = await this.userPreferenceModel
       .findOneAndUpdate(
         { userId },
