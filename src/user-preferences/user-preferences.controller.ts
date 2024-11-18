@@ -11,7 +11,7 @@ import {
 } from '@nestjs/common';
 import { UserPreferencesService } from './user-preferences.service';
 import { CreatePreferenceDto } from './dto/create-preference.dto';
-import { LoggerService } from 'src/logger/logger.service';
+import { LoggerService } from '../logger/logger.service';
 
 @Controller('preferences')
 export class UserPreferencesController {
