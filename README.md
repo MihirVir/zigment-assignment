@@ -1,99 +1,195 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Zigment Assignment 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Project setup
-
-```bash
-$ npm install
+## Installation 
+To install the dependencies run the following cmd 
+```sh
+npm install
 ```
 
-## Compile and run the project
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+To start the server run the following cmd 
+```sh
+npm run start
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+## Run Tests
+The following command is to run tests. 
+```sh
+npm run tests
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g mau
-$ mau deploy
+## ENV EXAMPLE 
+Put the following env variables in your .env file.
+```sh
+MONGO_UR=<connection_string>
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## API Docs
+  - ### User Preference Endpoint
 
-## Resources
+    **POST**: /api/preferences <i>replaced localhost with the hosted URL</i>
+    </br></br>creates new user preferences
 
-Check out a few resources that may come in handy when working with NestJS:
+    ```sh
+    Endpoint: localhost:3000/api/preferences
+    Body(JSON):
+    {
+      "userId": "user123",
+      "email": "user@example.com",
+      "preferences": {
+        "marketing": true,
+        "newsletter": false,
+        "updates": true,
+        "frequency": "weekly",
+        "channels": {
+          "email": true,
+          "sms": false,
+          "push": true
+        }
+    
+      },
+      "timezone": "America/New_York"
+    }
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+    Response:
+      {
+        "userId": "userabc123",
+        "email": "user@example.com",
+        "preferences": {
+            "marketing": true,
+            "newsletter": false,
+            "updates": true,
+            "frequency": "weekly",
+            "channels": {
+                "email": true,
+                "sms": false,
+                "push": true
+            }
+        },
+        "timezone": "America/New_York",
+        "_id": "673b9b0eb3a76b17da76b637",
+        "lastUpdated": "2024-11-18T19:52:46.456Z",
+        "createdAt": "2024-11-18T19:52:46.457Z",
+        "__v": 0
+      }
+    ```
+    
 
-## Support
+  **Get**: /api/preferences/:userId
+  </br></br> Finds user preference from the database and returns it. 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+  ```sh
+    Endpoint: localhost:3000/api/preferences/user123
+    response:
+      {
+          "_id": "673aad64b246d03d17f6b762",
+          "userId": "user123",
+          "email": "user@user.com",
+          "preferences": {
+              "marketing": true,
+              "newsletter": false,
+              "updates": true,
+              "frequency": "weekly",
+              "channels": {
+                  "email": true,
+                  "sms": false,
+                  "push": true
+              }
+          },
+          "timezone": "America/New_York",
+          "lastUpdated": "2024-11-18T13:39:34.054Z",
+          "createdAt": "2024-11-18T02:58:44.958Z",
+          "__v": 0
+      }
+  ```
 
-## Stay in touch
+  **PATCH**: /api/preferences/:userId
+  </br></br> Find user with userId provided in the params and updates it with the data provied
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+  ```sh
+    Endpoint: localhost:3000/api/preferences/user123
 
-## License
+    Body:
+    {
+      "userId": "user123",
+      "email": "user@user.com",
+      "preferences": {
+        "marketing": true,
+        "newsletter": false,
+        "updates": true,
+        "frequency": "weekly",
+        "channels": {
+          "email": true,
+          "sms": false,
+          "push": true
+        }
+    
+      },
+      "timezone": "America/New_York"
+    }
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+    Response: {
+          "_id": "673aad64b246d03d17f6b762",
+          "userId": "user123",
+          "email": "user@user.com",
+          "preferences": {
+              "marketing": true,
+              "newsletter": false,
+              "updates": true,
+              "frequency": "weekly",
+              "channels": {
+                  "email": true,
+                  "sms": false,
+                  "push": true
+              }
+          },
+          "timezone": "America/New_York",
+          "lastUpdated": "2024-11-18T13:39:34.054Z",
+          "createdAt": "2024-11-18T02:58:44.958Z",
+          "__v": 0
+    }
+  ```
+
+  **DELETE**: /api/preferences/userId
+  </br></br> Finds the user with provided userId in the params and removes it from the database
+
+  ```sh
+    Endpoint: localhost:3000/api/preferences/user123
+  ```
+
+- NotificationLog Endpoints:
+    **POST**: api/notifications/send
+    </br></br> Runs a Simulation of sending the user a notification.
+
+    ```sh
+    Endpoint: localhost:3000/api/notifications/send
+
+    Body: {
+      "userId": "user123",
+      "type": "marketing",
+      "channel": "email",
+      "content": {
+        "subject": "Special Offer 1-00000",
+        "body": "Check out our latest deals!"
+      }
+    }
+    ```
+
+    **GET**: /api/notifications/:userId/logs
+    </br></br> Gets all notifications of the userId provided.
+
+    ```sh
+    Endpoint: localhost:3000/api/notifications/user123/logs
+    ```
+
+    **GET**: /api/notifications/stats
+    </br></br> Gets all the stats of how many message were sent and failed.
+    ```sh
+    Endpoint: localhost:3000/api/notifications/stats
+    Response: {
+        "total": 13,
+        "sent": 9,
+        "failed": 4
+    }
+    ```
+  
+  
